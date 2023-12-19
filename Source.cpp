@@ -112,7 +112,7 @@ int main()
 
 	for (int i = 0; i < n; i++)
 	{
-		Sol_X[i] = round_up(X[i], 2);
+		Sol_X[i] = round_up(X[i], 1);
 	}
 
 	for (int c = 0; c <= 30; c++) std::cout << (char)220;
