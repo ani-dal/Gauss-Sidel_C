@@ -101,7 +101,7 @@ int main()
 			dX[i] = X[i] - _X[i];
 			if (dX[i] >= 0.0001) convergePT++;
 		}
-		std::cout <<" " << convergePT;
+		//std::cout <<" " << convergePT;
 		std::cout << "\n";
 		itr++;
 	} while (convergePT != 0);
