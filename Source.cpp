@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "headers/h_clock/HiTime.h"
 
 double round_up(double value, int decimal_places)
 {
@@ -41,14 +41,14 @@ int main()
 	double* X = new double[n];
 	std::fill(X, X+n, 0);
 
-	
+	/*
 	for (int mi = 0; mi < n; mi++) {
 
 		// Declare a memory block
 		// of size n
 		std::cout << X[mi]  << "\n";
 	}
-	
+	*/
 
 	double* _X = new double[n];
 
@@ -60,7 +60,7 @@ int main()
 	}
 
 	int itr = 0;
-
+	h_clock::startTimer();
 	do
 	{
 
@@ -106,6 +106,8 @@ int main()
 		itr++;
 	} while (convergePT != 0);
 
+	int time = h_clock::clock_milli();
+
 	double* Sol_X = new double[n];
 
 	for (int i = 0; i < n; i++)
@@ -114,7 +116,8 @@ int main()
 	}
 
 	for (int c = 0; c <= 30; c++) std::cout << (char)220;
-
+	std::cout << "\nSOLUTION CONVERGED in " << itr << " iterations in "<< time <<" ms\n";
+	for (int c = 0; c <= 30; c++) std::cout << (char)220;
 	std::cout << "\nRESULTS: \nX = [";
 
 		for (int i = 0; i < n; i++)
