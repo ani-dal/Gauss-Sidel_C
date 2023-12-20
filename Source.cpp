@@ -10,7 +10,7 @@ double round_up(double value, int decimal_places)
 int main()
 {
 	int n;
-
+	bool divergeFlag;
 	std::cout << "Enter the Number of unkowns: ";
 	std::cin >> n;
 	std::cout << "\n";
@@ -104,6 +104,11 @@ int main()
 		//std::cout <<" " << convergePT;
 		std::cout << "\n";
 		itr++;
+		if (itr >= 1500)
+		{
+			divergeFlag = true;
+			break;
+		}
 	} while (convergePT != 0);
 
 	int time = h_clock::clock_milli();
@@ -112,7 +117,7 @@ int main()
 
 	for (int i = 0; i < n; i++)
 	{
-		Sol_X[i] = round_up(X[i], 1);
+		Sol_X[i] = round_up(X[i], 2);
 	}
 
 	for (int c = 0; c <= 30; c++) std::cout << (char)220;
