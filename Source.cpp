@@ -112,18 +112,27 @@ int main()
 	} while (convergePT != 0);
 
 	int time = h_clock::clock_milli();
-
-	double* Sol_X = new double[n];
-
-	for (int i = 0; i < n; i++)
+	if (divergeFlag)
 	{
-		Sol_X[i] = round_up(X[i], 2);
+		for (int c = 0; c <= 30; c++) std::cout << (char)220;
+		std::cout << "\nSOLUTION DIVERGES after " << itr << " iterations in " << time << " ms\n";
+		for (int c = 0; c <= 30; c++) std::cout << (char)220;
+		
 	}
+	else
+	{
 
-	for (int c = 0; c <= 30; c++) std::cout << (char)220;
-	std::cout << "\nSOLUTION CONVERGED in " << itr << " iterations in "<< time <<" ms\n";
-	for (int c = 0; c <= 30; c++) std::cout << (char)220;
-	std::cout << "\nRESULTS: \nX = [";
+		double* Sol_X = new double[n];
+
+		for (int i = 0; i < n; i++)
+		{
+			Sol_X[i] = round_up(X[i], 2);
+		}
+
+		for (int c = 0; c <= 30; c++) std::cout << (char)220;
+		std::cout << "\nSOLUTION CONVERGED in " << itr << " iterations in " << time << " ms\n";
+		for (int c = 0; c <= 30; c++) std::cout << (char)220;
+		std::cout << "\nRESULTS: \nX = [";
 
 		for (int i = 0; i < n; i++)
 		{
@@ -132,6 +141,7 @@ int main()
 
 		std::cout << " ]\n";
 
+	}
 
 	return 0;
 }
